@@ -3,16 +3,6 @@ var router = express.Router();
 var stripe = require('stripe')(
   "sk_test_9gXbCG9wAEJ3HOFH5nvAFhJ0"
 );
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  var stripe = require('stripe')(
-    "sk_test_9gXbCG9wAEJ3HOFH5nvAFhJ0"
-  );
-  stripe.balance.retrieve(function(err, balance) {
-    var bal = balance;
-    res.render('index', { title: 'Express', balance: bal.available[0].amount });
-  });
-});
 
 router.post("/charge", (req, res) => {
   let amount = 500;
@@ -30,6 +20,5 @@ router.post("/charge", (req, res) => {
     }))
   .then(charge => res.render('charge'));
 });
-
 
 module.exports = router;

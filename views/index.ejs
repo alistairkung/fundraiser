@@ -8,5 +8,11 @@
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
     <p><%= balance %></p>
+    <form action="/charge" method="post">
+      <article>
+        <label>Amount: $5.00</label>
+      </article>
+      <script src="//checkout.stripe.com/v2/checkout.js" data-locale="auto" data-description="Sample Charge" data-amount="500" data-key="pk_test_pEkVf0jKC3iVg4muRYtGlSJt" class="stripe-button"></script>
+    </form>
   </body>
 </html>
